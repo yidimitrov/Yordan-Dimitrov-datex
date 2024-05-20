@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
+using WarehouseWebApi.Models.Business;
 using WarehouseWebApi.Models.Db.Entity;
 
-namespace WarehouseWebApi.Models.Business
+namespace WarehouseWebApi.Mappers
 {
     internal static class RepositoryMapperConfig
     {
@@ -12,6 +13,9 @@ namespace WarehouseWebApi.Models.Business
 
             cfg.CreateMap<PalletEntity, Pallet>();
             cfg.CreateMap<BoxEntity, Box>();
+
+            cfg.CreateMap<BoxEntity, BarcodesDto>()
+            .ForMember(dest => dest.Barcode, opt => opt.MapFrom(src => src.Barcode));
         });
 
         internal static Mapper InitializeAutomapper()

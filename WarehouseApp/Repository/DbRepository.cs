@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using WarehouseWebApi.Mappers;
+using WarehouseWebApi.Models.Business;
 using WarehouseWebApi.Models.Db.Entity;
 
 namespace WarehouseWebApi.Repository
@@ -11,7 +13,7 @@ namespace WarehouseWebApi.Repository
         public DbRepository(WarehouseDbContext context)
         {
             _context = context;
-            _mapper = Models.Business.RepositoryMapperConfig.InitializeAutomapper();
+            _mapper = RepositoryMapperConfig.InitializeAutomapper();
         }
 
         internal async Task AddPallet(Models.Business.Pallet palletBusiness, CancellationToken cancellationToken)
@@ -47,6 +49,17 @@ namespace WarehouseWebApi.Repository
             pallet.Boxes.RemoveAll(b => b.OwnerId is not null);
 
             return pallet;
+        }
+
+        internal async Task<string[]> GetBoxesBarcodes(CancellationToken token)
+        {
+            var barcodes =
+                await _context.GetAllAsync<BoxEntity, BarcodesDto>(
+                    box => true,
+                    _mapper.ConfigurationProvider,
+                    token);
+
+            return barcodes.Select(b => b.Barcode).ToArray();
         }
 
         internal async Task RemoveBoxes(string[] barcodes, CancellationToken token)

@@ -16,7 +16,7 @@
 
         public override string ToString()
         {
-            return $"box: {Barcode}, owner: {Owner}, boxes: {Boxes}";
+            return $"box: {Barcode}, owner: {Owner}";
         }
     }
 }

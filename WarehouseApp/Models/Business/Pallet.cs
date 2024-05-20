@@ -8,7 +8,7 @@
 
         public override string ToString()
         {
-            return $"pallet: {Barcode}, boxes: {Boxes}";
+            return $"pallet: {Barcode}";
         }
     }
 }

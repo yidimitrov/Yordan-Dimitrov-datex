@@ -21,7 +21,20 @@ namespace WarehouseWebApi.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> AddPallet([FromBody] Pallet pallet, CancellationToken cancellationToken)
         {
-            await _warehouseService.AddPallet(pallet, cancellationToken);
+            if (WarehouseService.IsInputInvalid(pallet, ModelState))
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                await _warehouseService.AddPallet(pallet, cancellationToken);
+            }
+            catch (InvalidDataException exception)
+            {
+                return Conflict(exception.Message);
+            }
+
             return Ok();
         }
 
@@ -49,14 +62,22 @@ namespace WarehouseWebApi.Controllers
         }
 
         [HttpPut(Name = "RemoveBoxes")]
-        public async Task<ActionResult<Pallet[]>> RemoveBoxes([FromBody] string[] barcodes, CancellationToken cancellationToken)
+        public async Task<ActionResult> RemoveBoxes([FromBody] string[] barcodes, CancellationToken cancellationToken)
         {
             if (WarehouseService.HasInvalidBarcodes(barcodes, ModelState))
             {
                 return BadRequest(ModelState);
             }
 
-            await _warehouseService.RemoveBoxes(barcodes, cancellationToken);
+            try
+            {
+                await _warehouseService.RemoveBoxes(barcodes, cancellationToken);
+            }
+            catch (InvalidDataException exception)
+            {
+                return Conflict(exception.Message);
+            }
+
             return Ok();
         }
     }
