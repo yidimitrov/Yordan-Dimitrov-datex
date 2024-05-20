@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "4948b7c1-ee52-4bfe-8bdf-3de80f8aa5e2",
+		"name": "Datex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7424559",
+		"_collection_link": "https://grey-zodiac-872461.postman.co/workspace/A1~529c937c-1405-4969-a1ee-0155e6b39b25/collection/7424559-4948b7c1-ee52-4bfe-8bdf-3de80f8aa5e2?action=share&source=collection_link&creator=7424559"
+	},
+	"item": [
+		{
+			"name": "Warehouse",
+			"item": [
+				{
+					"name": "AddPallet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"barcode\": \"P1\",\r\n    \"boxes\": [\r\n        {\r\n            \"barcode\": \"BC1\",\r\n            \"boxes\": [\r\n                {\r\n                    \"barcode\": \"BC2\"\r\n                },\r\n                {\r\n                    \"barcode\": \"BC3\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"barcode\": \"BC4\",\r\n            \"boxes\": [\r\n                {\r\n                    \"barcode\": \"BC5\"\r\n                },\r\n                {\r\n                    \"barcode\": \"BC6\"\r\n                },\r\n                {\r\n                    \"barcode\": \"BC7\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7264/Warehouse",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7264",
+							"path": [
+								"Warehouse"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "AddPallet",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"barcode\": \"P1\",\r\n    \"boxes\": [\r\n        {\r\n            \"barcode\": \"BC1\",\r\n            \"boxes\": [\r\n                {\r\n                    \"barcode\": \"BC2\"\r\n                },\r\n                {\r\n                    \"barcode\": \"BC3\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"barcode\": \"BC4\",\r\n            \"boxes\": [\r\n                {\r\n                    \"barcode\": \"BC5\"\r\n                },\r\n                {\r\n                    \"barcode\": \"BC6\"\r\n                },\r\n                {\r\n                    \"barcode\": \"BC7\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7264/Warehouse",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7264",
+									"path": [
+										"Warehouse"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GetPallets",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"barcode\": \"P1\",\r\n    \"boxes\": [\r\n        {\r\n            \"barcode\": \"BC1\",\r\n            \"boxes\": [\r\n                {\r\n                    \"barcode\": \"BC2\"\r\n                },\r\n                {\r\n                    \"barcode\": \"BC3\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"barcode\": \"BC4\",\r\n            \"boxes\": [\r\n                {\r\n                    \"barcode\": \"BC5\"\r\n                },\r\n                {\r\n                    \"barcode\": \"BC6\"\r\n                },\r\n                {\r\n                    \"barcode\": \"BC7\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7264/Warehouse",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7264",
+							"path": [
+								"Warehouse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPallet/{barcode}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"barcode\": \"P1\",\r\n    \"boxes\": [\r\n        {\r\n            \"barcode\": \"BC1\",\r\n            \"boxes\": [\r\n                {\r\n                    \"barcode\": \"BC2\"\r\n                },\r\n                {\r\n                    \"barcode\": \"BC3\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"barcode\": \"BC4\",\r\n            \"boxes\": [\r\n                {\r\n                    \"barcode\": \"BC5\"\r\n                },\r\n                {\r\n                    \"barcode\": \"BC6\"\r\n                },\r\n                {\r\n                    \"barcode\": \"BC7\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7264/Warehouse/P1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7264",
+							"path": [
+								"Warehouse",
+								"P1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RemoveBoxes",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    \"BC1\",\r\n    \"BC6\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7264/Warehouse",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7264",
+							"path": [
+								"Warehouse"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
